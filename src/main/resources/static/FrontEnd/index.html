@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client-Influencer Collaboration Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.png">
+</head>
+<body id="home">
+    <div class="navbar" style="margin: 0px; padding: 0px;">
+    <nav>
+        <div class="title">
+            <h3>Client-Influencer Collaboration Platform</h3>
+        </div> 
+
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="login.html">Login</a>
+            <a href="signup.html">Sign up</a>
+        </div>
+
+        <div class="burger" onclick="toggleMenu()">☰</div>
+    </nav>
+
+    </div>
+    
+    <div class="home-img">
+    <div class="overlay-text">
+        <h1>Client-Influencer Collaboration Platform</h1>
+    </div>
+    <div class="home-control">
+    <h1 id="a">Connect with the Right Influencers Easily</h1>
+    <p>Enter your requirements and budget to create booking requests and collaborate with suitable influencers.</p>
+    <a href="client.html"><button id="launch" >Join as Client</button></a>
+    <a href="influencer.html"><button id="influencer" >Join as influencer</button></a>
+    </div>
+    </div>
+    <div class="hero">
+    <div class="home-title">
+        <h1>Find the Right Influencer Within Your Budget</h1>
+        <p>Create booking requests and collaborate with influencers based on your needs and budget.</p>
+        <ul class="hero-points">
+            <li>Easy booking request creation with budget</li>
+            <li>Direct collaboration with influencers</li>
+            <li>Simple and organized booking management</li>
+        </ul>
+    </div>
+    <div class="home">
+    <h2 id="aa">Enter Product and Budget</h2>
+    <div style="margin-top: 30px;">
+    <h3>Enter Product Name</h3>
+    <input type="text">
+    <h3>Enter Budget</h3>
+    <input type="number">
+    <h3>System automatically selects the best influencer</h3>
+    <button type="button" class="btn"><bold>Get Influencer</bold></button>
+    </div>
+    </div>
+    </div>
+    <section>
+    <div class="hero-section">
+        <h1 class="hero-sec">Platforms We Support</h1>
+        <div class="logo-section">
+            <marquee direction="left" scrollamount="10">
+            <img src="./images/Instagram.png" class="img-icon" alt="Instagram">
+            <img src="./images/YouTube.png" class="img-icon" alt="Youtube">
+            <img src="./images/Facebook.png" class="img-icon" alt="Facebook">
+            <img src="./images/Twitter.png" class="img-icon" alt="Twitter">
+            <img src="./images/Linkedin.png" class="img-icon" alt="Linkdin">
+            <img src="./images/TikTok.png" class="img-icon" alt="TicToK">
+            </marquee>
+        </div>
+    </div>
+    </section>
+    <div class="home-container">
+        <h2 class="section-title">How It Works</h2>
+        <div class="home-card-row">
+        <div class="home-card">
+            <div class="icon">📝</div>
+            <h3>Enter Campaign Details</h3>
+            <p>Provide your product details, requirements, and campaign information.</p>
+        </div>
+        <div class="home-card">
+            <div class="icon">💰</div>
+            <h3>Set Your Budget</h3>
+            <p>Define your budget while creating the booking request.</p>
+        </div>
+        <div class="home-card">
+            <div class="icon">📩 </div>
+            <h3>Send Booking Request</h3>
+            <p>Submit your request to the selected influencer.</p>
+        </div>
+        <div class="home-card">
+            <div class="icon">📊</div>
+            <h3>Track Status</h3>
+            <p>Monitor booking status (Pending, Accepted, Rejected) in real-time.</p>
+        </div>
+        </div>
+    </div>
+    <section class="footer-section">
+        <div class="footer-ctn">
+        <h1 id="h1">Ready to find the best influencer for your brand?</h1>
+        <h1 id="h1">Start your campaign today.</h1>
+        <button class="footer-btn">Get Started</button>
+        </div>
+        <div class="footer-container">
+            <div class="footer-detail">
+                <h1 id="h1">Client-Influencer Collaboration Platform</h1>
+                <p id="p">A simple and efficient platform to connect clients and influencers for seamless booking and collaboration management.</p>
+            </div>
+            <div class="footer-detail">
+                <h1 id="h1">Quick Links</h1>
+                <div class="footer-link">
+                <a href="index.html" style="color: white;">Home</a>
+                <a href="about.html" style="color: white;">About</a>
+                <a href="login.html" style="color: white;">Login</a>
+                <a href="signup.html" style="color: white;">Sign up</a>
+                <a href="/Admin/Admin.html" style="color: white;">Admin</a>
+                </div>
+            </div> 
+            <div class="footer-detail">
+                <h1 id="h1">Contact</h1>
+                <p id="p">Email: ashi@gmail.com</p>
+                <p id="p">Phone: +91 7842678296</p>
+                <p id="p">Location: Chennai, India</p>
+            </div>
+
+        </div>
+        <p class="footer" style="color: white;">@ 2026 Client-Influencer Collaboration Platform</p>
+    </section>
+</body>
+<script>
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+
+</html>

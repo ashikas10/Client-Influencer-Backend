@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="adminstyle.css">
+</head>
+<body class="admin">
+    <h1 id="ab">Budget Based Influencer Auto Allocation System</h1>
+    <form id="admin-form" onsubmit="login(event)">
+        <div class="col-mb3">
+        <label class="form-label">Email Id :</label>
+        <input type="email" id="email" name="email" placeholder="Enter Email" required ><br>
+        </div>
+        <div class="password-box">
+            <label>Password :</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required>
+        </div>
+        <button type="submit" class="admin-btn">Login</button>
+    </form>
+    <script>
+        function login(event){
+            event.preventDefault(); 
+
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value.trim();
+
+            const ADMIN_EMAIL = "ashikas842005@gmail.com";
+            const ADMIN_PASSWORD = "ashi842005";
+
+            if(email === ADMIN_EMAIL && password === ADMIN_PASSWORD){
+
+                localStorage.setItem("isAdminLoggedIn", "true");
+
+                alert("Login Successful");
+                window.location.href = "dashboard.html";
+
+            } else {
+                alert("Invalid Email or Password");
+            }
+        }
+</script>
+</body>
+</html>

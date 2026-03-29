@@ -1,0 +1,646 @@
+
+/* home */
+*{
+    margin: 5px;
+    padding: 5px;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    padding: 1px 1px;
+}
+nav {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+.nav-links {
+    margin-left: auto;   
+}
+nav a {
+  text-decoration: none;
+  border-radius: 20px;
+  background-color: #d2dae6; 
+  color: black;
+  transition: 0.3s ease;
+  padding: 5px;
+  margin: 20px;
+  
+}
+
+nav a:hover {
+  background-color: #4f46e5;
+  color: white;
+  text-decoration: underline;
+}
+.title h3 {
+    margin: 0;
+    margin-left: 50px;
+    font-size: 30px;
+
+}
+#a{
+    color: #1f4fd8;
+}
+.overlay-text{
+    color: darkblue;
+    font-size: 25px;    
+    text-align: center;
+}
+.home-img{
+    background-image: url("./images/home.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+}
+.home-control{
+    text-align: center;
+    margin-top: 250px;
+    box-shadow: 0px 0px 20px black ;
+    width: 1000px;
+    margin-left: 200px;
+    background-color: Lavender;
+    transition: transform 0.4s ease;
+}
+.home-control:hover{
+    transform: scale(1.1);
+}
+#launch{
+    background-color: rgb(27, 194, 27);
+    margin-top: 50px;
+    color: white;
+    border-radius: 6px;
+}
+#launch:hover{
+    background-color: rgb(163, 79, 241);
+    color: white;
+}
+#influencer{
+    background-color: red;
+    margin-top: 50px;
+    color: white;
+    border-radius: 6px;
+}
+#influencer:hover{
+    background-color: rgb(163, 79, 241);
+    color: white;
+}
+#aa{
+    text-align: center;
+}
+.home-card{
+    border: 2px solid black;
+    padding: 5px;
+    width: 250px;
+    border-radius: 10px;
+    background-color: #e6f0ff;
+    border-color: white;
+    text-align: center;
+    transform: translateY(20px);
+    opacity: 1;
+    transition: all 0.4s ease;
+    
+}
+.icon{
+    font-size: 100px
+}
+.home-card:hover{
+    transform: translateY(0);
+    opacity: 1;
+    box-shadow: 0px 0px 10px black;
+}
+.home-card-row{
+    display:flex;
+    justify-content: space-between;
+}
+.home{
+    text-align: justify;
+    box-shadow: 0px 0px 20px black;
+    height: 350px;
+    width: 450px;
+    margin: auto;
+    margin-top: 150px;
+    margin-right: 100px;
+    border-radius: 10px;
+    background-color:Lavender ;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  padding: 60px;
+}
+.section-title{
+    text-align: center;
+    font-size: 40px;
+    color: rgb(230, 8, 45);
+}
+.img-icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    margin-right: 70px;
+}
+.hero-sec{
+    text-align: center;
+    color: rgb(74, 122, 252);
+    font-size: 40px;
+}
+.btn{
+    background-color: blueviolet;
+    color: white;
+    font-size: 15px;
+    display: block;  
+    margin: 0 auto;
+    border-radius: 10px;
+}
+.btn:hover{
+    background-color: green;
+}
+.footer{
+    text-align: center;
+    color: black;
+    font-size: 20px;
+}
+.footer-section{
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: rgb(46, 37, 37);
+    color: white;
+    margin-top: 100px;
+}
+.footer-ctn{
+    text-align: center;
+    font-size: 25px;
+}
+#h1:hover{
+    color: rgb(27, 194, 27);
+}
+#p:hover{
+    color: rgb(27, 194, 27) ;
+    text-decoration: underline;
+}
+.footer-link{
+    display: flex;
+    flex-direction: column;
+}
+.footer-link a{
+    color: white;
+    text-decoration: none;
+}
+.footer-link a:hover{
+    color: rgb(27, 194, 27) !important;
+    text-decoration: underline;
+}
+.footer-container{
+    display: flex;
+    text-decoration: none;
+}
+.footer-btn{
+    background-color: blueviolet;
+    border-radius: 10px;
+    border-color: white;
+    padding: 10px;
+    color: white;
+}
+/* About */
+.abo{
+   color: Navy;
+    margin-top: 50px;
+    font-size: 40px; 
+}
+.about-img{
+    background-image: url(./images/about.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+}
+.abo-h1{
+    text-align: center;
+    color: rgb(248, 8, 8);
+}
+.abo-p{
+    font-size: 20px;
+    line-height: 35px;
+}
+.about-container{
+    display: flex;
+    gap: 40px;
+    text-align: center;
+    margin-left: 200px ;
+    margin-top: 50px;
+}
+.about-card{
+    border: 2px solid black;
+    border-radius: 15px;
+    height: 100px;
+    width: 150px;
+    transition: transform 0.4s ease;
+}
+.about-card:hover{
+    transform: scale(1.1);
+    background-color: azure;
+}
+.abo-h3:hover{
+    color: orange;
+}
+.about-list{
+    display: flex;
+    gap: 40px;
+    margin-left: 100px;
+}
+.abo-plat{
+    margin-left: 100px;
+}
+.abo-ul{
+    border: 2px solid black;
+    border-radius: 20px;
+    margin-top: 30px;
+    background-color: #cde4fd;
+    padding: 25px;
+}
+section{
+    margin-top: 60px;
+}  
+/* Login*/ 
+.login{
+    background-image: url(./images/influence.png);
+    background-position: center ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+}
+    
+.button{
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 50px;
+    
+}
+#login-form{
+    text-align: center;
+    margin-top: 100px;
+    box-shadow: 0px 0px 10px ;
+    height: 300px;
+    width: 400px;
+}
+#ab{
+    text-align: center;
+    color: rgb(230, 8, 45);
+}
+.col-mb3{
+    margin-top: 20px;
+}
+/* Sign Up*/
+.signup{
+    background-image: url(./images/influence.png);
+    background-position: center ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+}
+#cc{
+    text-align: center;
+    font-size: medium;
+}
+#signup-form{
+    text-align: justify;
+    margin-top: 100px;
+    box-shadow: 0px 0px 10px ;
+    height: 300px;
+    width: 400px;
+}
+.btn-ctl{
+    color: white;
+    background-color: blueviolet;
+    border-radius: 5px;
+    margin-left: 150px;
+}
+/* Influencer */
+.influencer{
+    background-image: url(./images/influence.png);
+    background-position: center ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#influencer-form{
+    text-align: justify;
+    margin-top: 5px;
+    box-shadow: 0px 0px 10px ;
+    height: 540px;
+    width: 470px;
+}
+.btn-con{
+    color: white;
+    background-color: blueviolet;
+    border-radius: 5px;
+    margin-left: 200px;
+}
+/* Client */
+.client{
+    background-image: url(./images/influence.png);
+    background-position: center ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#cl{
+    text-align: center;
+}
+#client-form{
+    text-align: justify;
+    margin-top: 50px;
+    box-shadow: 0px 0px 10px ;
+    height: 400px;
+    width: 350px;
+}
+
+.btn-lab{
+    color: white;
+    background-color: blueviolet;
+    border-radius: 5px;
+    margin-left: 130px;
+    margin-top: 10px;
+}
+.card{
+    border: 2px solid black;
+    padding: 5px;
+    width: 220px;
+}
+/* Card */
+.cli-card{
+    background-image: url(./images/influence.png);
+}
+.card-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 40px;
+}
+.card{
+    border-radius: 10px;
+    background-color: white;
+}
+.but{
+    margin-left: 600px;
+    background-color: #1f4fd8;
+    color: white;
+    width: 100px;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 20px;
+}
+.btn-detail{
+    margin-left: 150px;
+    border-radius: 5px;
+    background-color: rgb(2, 143, 2);
+    color: white;
+}
+.cli-card h1{
+    color: navy;
+    text-align: center;
+    margin-top: 20px;
+}
+/*CLIENT-PROFILE*/
+.cli-profile{
+    background:#f4f6f9;
+    font-family: Arial;
+}
+.dashboard{
+    width: 80%;
+    margin: 1px auto; 
+}
+.cards{
+    display:flex;
+    justify-content: space-between;
+    margin:20px 0;
+}
+.card-box{
+    width:23%;
+    padding:20px;
+    color:white;
+    border-radius:10px;
+    text-align:center;
+}
+.total{background:#007bff;}
+.accepted{background:#28a745;}
+.pending{background:#ffc107; color:black;}
+.rejected{background:#dc3545;}
+
+.table-box{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+}
+.btn-new{
+    margin-bottom:15px;
+}
+.topbar{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    height:60px; /* 🔥 add */
+}
+.profile-menu{
+    position: relative;
+    font-size: 24px;
+}
+
+.dropdown{
+    display:none;
+    position:absolute;
+    top:50px;
+    right:0;
+    background:white;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+    border-radius:8px;
+    z-index:1000;
+}
+.dropdown p{
+    margin:0;
+    padding:10px 20px;
+    cursor:pointer;
+}
+
+.dropdown p:hover{
+    background:#f0f0f0;
+}
+.profile-circle{
+    width:40px;
+    height:40px;
+    background:#007bff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+}
+
+.profile-circle span{
+    color:white;
+    font-weight:bold;
+    font-size:18px;
+}
+/*INFLUENCER-PROFILE*/
+
+.inf-profile{
+    background:#f4f6f9;
+    font-family: Arial;
+}
+
+.profile-container{
+    width:80%;
+    margin:30px auto;
+}
+
+.profile-card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:30px;
+}
+
+.profile-img{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:#007bff;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    margin:0 auto 10px;
+}
+
+.booking-section{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+}
+/*Home*/
+@media screen and (max-width: 768px) {
+    .home-card-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .home-control {
+        width: 90%;
+        margin-left: 5%;
+    } 
+    .hero{
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-container{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/*About*/
+@media screen and (max-width: 768px){
+    .about-img{
+        height: 300px;
+    }
+    .about-container{
+        flex-direction: column;
+        align-items: left;
+    }
+    .about-list{
+        flex-direction: column;
+        align-items: center;
+    }
+    .abo-plat{
+        margin-left: 0px;
+    }
+}
+/*Login*/
+@media screen and (min-width: 600px){
+   #login-form{
+    margin-left: 500px;
+   }
+}
+@media screen and (max-width: 768px){
+   #login-form{
+    margin-left: 50px;
+   }
+}
+/*SignUp*/
+@media screen and (min-width: 600px){
+   #signup-form{
+    margin-left: 500px;
+   }
+}
+@media screen and (max-width: 768px){
+   #signup-form{
+    margin-left: 50px;
+   }
+}
+/*Client*/
+@media screen and (min-width: 600px){
+   #client-form{
+    margin-left: 500px;
+   }
+}
+@media screen and (max-width: 768px){
+   #client-form{
+    margin-left: 100px;
+   }
+}
+/*Influencer*/
+@media screen and (min-width: 600px){
+   #influencer-form{
+    margin-left: 450px;
+   }
+}
+
+/*MOBILE VIEW*/
+
+  .burger{
+  display:none;
+  font-size:25px;
+  cursor:pointer;
+}
+
+@media (max-width:768px){
+
+  .burger{
+    display:block;
+  }
+
+  nav a{
+    background-color: white;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:70px;
+    right:10px;
+    background:white;
+    width:200px;
+    flex-direction:column;
+    display:none;
+  }
+
+  .nav-links a{
+    margin:10px;
+    display:block;
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+}
+

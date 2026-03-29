@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.png">
+</head>
+<body class="signup">
+    <h1 id="ab">Client-Influencer Collaboration Platform</h1>
+    <form id="signup-form">
+    <div class="col-mb3">
+        <label class="form-label">Email Id :</label>
+        <input type="email" id="email" name="email" placeholder="Enter Email"  style="margin-left: 50px;" required ><br>
+        </div>
+        <div class="password-box">
+            <label>Password :</label>
+            <input  type="password" id="password" name="password" placeholder="Enter Password" style="margin-left: 42px;" required>
+        </div>
+        <div class="password-box">
+            <label> Confirm Password :</label>
+            <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Enter Password" required>
+        </div>
+        <button type="submit" class="btn-ctl">Sign Up</button>
+        <p id="cc"> Already have an account?<ins><a href="login.html">Login</ins></a></p>
+    </form>
+</body>
+    <script>
+        
+document.getElementById("signup-form").addEventListener("submit", async function(e) {
+
+    e.preventDefault(); 
+
+    const formData = new FormData(this);
+
+    try {
+
+        const response = await fetch("http://localhost:8080/api/auth/signup", {
+            method: "POST",
+            body: formData
+        });
+
+        const result = await response.text();
+
+        if (result === "Email already exists") {
+            alert("Email already exists");
+        }
+        else if (result === "Password and Confirm Password do not match") {
+            alert("Password and Confirm Password do not match");
+        }
+        else if (result === "Signup Successfully") {
+            alert("Signup Successfully ");
+            window.location.href = "index.html";
+        }
+
+    } catch (error) {
+        alert("Something went wrong!");
+        console.log(error);
+    }
+
+});
+</script>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client-Influencer Collaboration Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="cli-card">
+  <div class="navbar" style="margin: 0px; padding: 0px;">
+    <nav>
+        <div class="title">
+            <h3>Client-Influencer Collaboration Platform</h3>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="login.html">Login</a>
+            <a href="signup.html">Sign up</a>
+        </div>
+
+        <div class="burger" onclick="toggleMenu()">
+            ☰
+        </div>
+
+    </nav>
+    </div>
+    <h1>Confirm Your Influencer</h1>
+    <div class="card-row" id="influencerDetailBody"></div>
+    <a href="client-profile.html">
+      <button type="button" class="but">Back</button>
+    </a>
+  <script>
+    async function loadInfluencers() {
+
+    const response = await fetch("http://localhost:8080/api/addinfluencer/all");
+    const influencer = await response.json();
+
+    const container = document.getElementById("influencerDetailBody");
+    container.innerHTML = "";
+
+    influencer.forEach(influencerDetail => {
+
+        const card = `
+        <div class="card">
+            <p>Name:  ${influencerDetail.name}</p>
+            <p>Instagram UserName: ${influencerDetail.instaUserName}</p>
+            <p>Product Category: ${influencerDetail.product}</p>
+            <p>Budget: ${influencerDetail.budget}</p>
+            <button onclick="confirmBooking('${influencerDetail.name}','${influencerDetail.instaUserName}','${influencerDetail.budget}')" class="btn-detail">Confirm</button>
+        </div>
+        `;
+
+        container.innerHTML += card;
+    });
+}
+
+loadInfluencers();
+function confirmBooking(name, username, budget) {
+
+    const clientName = localStorage.getItem("clientName");
+    const clientMobile = localStorage.getItem("clientMobile");
+
+    console.log(localStorage.getItem("clientName"));
+    console.log(localStorage.getItem("clientMobile"));
+    const bookingData = {
+        clientName: clientName,
+        clientMobile: clientMobile,
+        influencerName: name,
+        influencerUsername: username,
+        budget: budget,
+        status: "PENDING"
+    };
+
+    fetch("http://localhost:8080/bookings", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(bookingData)
+    })
+    .then(res => {
+    if(res.ok){
+        alert("Booking Successful ");
+        window.location.href="client-profile.html";
+    }
+})
+    .catch(err => console.log(err));
+}
+  </script>
+</body>
+</html>

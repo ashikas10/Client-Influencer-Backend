@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Details</title>
+    <link rel="stylesheet" href="adminstyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body class="dashboard">
+    <div class="content">
+        <div class="sidebar">
+            <h2>Admin</h2>
+            <a href="dashboard.html">Dashboard</a>
+            <div class="dropdown mb-3">
+                <a class="dropdown-toggle sidebar-link" data-bs-toggle="dropdown">Client</a>
+                <ul class="dropdown-menu" style="background-color: #243b5e;">
+                    <li><a class="dropdown-item" href="add-client.html">Add Client</a></li>
+                    <li><a class="dropdown-item" href="manage-client.html">Manage Client</a></li>
+                </ul>
+            </div>
+            <div class="dropdown mb-3">
+                <a class="dropdown-toggle sidebar-link" data-bs-toggle="dropdown">Influencer</a>
+                <ul class="dropdown-menu" style="background-color: #243b5e;">
+                    <li><a class="dropdown-item" href="add-influencer.html">Add Influencer</a></li>
+                    <li><a class="dropdown-item" href="manage-influencer.html">Manage Influencer</a></li>
+                </ul>
+            </div>
+            <div class="dropdown mb-3">
+                <a class="dropdown-toggle sidebar-link" data-bs-toggle="dropdown">User Details</a>
+                <ul class="dropdown-menu" style="background-color: #243b5e;">
+                    <li><a class="dropdown-item" href="client.html">Client</a></li>
+                    <li><a class="dropdown-item" href="influencer.html">Influencer</a></li>
+                </ul>
+            </div>
+            <a href="booking.html">Bookings</a>
+            <a href="#" onclick="logout()">Logout</a>
+        </div>
+        <div class="addInf-content">
+            <h2 class="addInfluencer-heading">Influencer Details</h2>
+
+            <!--POP-UP-->
+
+            <div class="modal fade" id="editModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Influencer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Name: <input type="text" id="influencerName" class="form-control mb-2" placeholder="Name">
+                    City: <input type="text" id="influencerCity" class="form-control mb-2" placeholder="City">
+                    State: <input type="text" id="influencerState" class="form-control mb-2" placeholder="State">
+                    Instagram UserName: <input type="text" id="influencerInstaUserName" class="form-control mb-2" placeholder="Instagram UserName">
+                    Budget: <input type="text" id="influencerBudget" class="form-control mb-2" placeholder="Budget">
+                    Product: <input type="text" id="influencerProduct" class="form-control mb-2" placeholder="Product">   
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button class="btn btn-success" onclick="saveInfluencer()">Save</button>
+                </div>
+                </div>
+            </div>
+            </div>
+            <table class="table table-bordered" id="addInfluencerTable">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Instagram UserName</th>
+                    <th>Budget</th>
+                    <th>Product</th>
+                    <th>Action</th>
+                </tr>
+                <tbody id="addInfluencerBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function logout(){
+            alert("Logged out successfully");
+            window.location.href = "Admin.html";
+        }
+        async function loadInfluencers(){
+
+            const response = await fetch("http://localhost:8080/api/addinfluencer/all");
+            const influencer = await response.json();
+
+            const tableBody = document.getElementById("addInfluencerBody");
+            tableBody.innerHTML = "";
+
+            influencer.forEach(addInfluencer => {
+
+                const row = `
+                <tr>
+                    <td>${addInfluencer.id}</td>
+                    <td>${addInfluencer.name}</td>
+                    <td>${addInfluencer.city}</td>
+                    <td>${addInfluencer.state}</td>
+                    <td>${addInfluencer.instaUserName}</td>
+                    <td>${addInfluencer.budget}</td>
+                    <td>${addInfluencer.product}</td>
+                    <td>
+                        <button onclick="change(event)" class="btn-edit">Edit</button>
+                    </td>
+                </tr>
+                `;
+                tableBody.innerHTML += row;
+            });
+
+        }
+        loadInfluencers();
+        let editRow = null;
+        function change(event){
+            editRow = event.target.parentElement.parentElement;
+            document.getElementById("influencerName").value = editRow.cells[1].textContent;
+            document.getElementById("influencerCity").value = editRow.cells[2].textContent;
+            document.getElementById("influencerState").value = editRow.cells[3].textContent;
+            document.getElementById("influencerInstaUserName").value = editRow.cells[4].textContent;
+            document.getElementById("influencerBudget").value = editRow.cells[5].textContent;
+            document.getElementById("influencerProduct").value = editRow.cells[6].textContent;
+            const modal = new bootstrap.Modal(document.getElementById('editModal'));
+            modal.show();
+        }
+        async function saveInfluencer() {
+            if(editRow == null) return;
+            const updatedInfluencer = {
+                id: Number(editRow.cells[0].textContent),
+                name: document.getElementById("influencerName").value,
+                city: document.getElementById("influencerCity").value,
+                state: document.getElementById("influencerState").value,
+                instaUserName: document.getElementById("influencerInstaUserName").value,
+                budget: document.getElementById("influencerBudget").value,
+                product: document.getElementById("influencerProduct").value
+            };
+
+            try {
+                const response = await fetch(`http://localhost:8080/api/addinfluencer/${updatedInfluencer.id}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(updatedInfluencer)
+                });
+
+                if(response.ok){
+                    editRow.cells[1].textContent = updatedInfluencer.name;
+                    editRow.cells[2].textContent = updatedInfluencer.city;
+                    editRow.cells[3].textContent = updatedInfluencer.state;
+                    editRow.cells[4].textContent = updatedInfluencer.instaUserName;
+                    editRow.cells[5].textContent = updatedInfluencer.budget;
+                    editRow.cells[6].textContent = updatedInfluencer.product;
+
+                    bootstrap.Modal.getInstance(document.getElementById('editModal')).hide();
+
+                    alert("Updated Successfully!");
+                    editRow = null;
+                }
+            } 
+            catch(error) {
+                console.error(error);
+                alert("Error!");
+            }
+        }
+    </script>
+</body>
+</html>

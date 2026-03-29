@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Client Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="cli-profile">
+<div class="topbar">
+    <h3 id="welcomeText">Welcome 👋</h3>
+
+    <div class="profile-menu">
+        <div class="profile-circle" onclick="toggleMenu()" id="profileCircle"></div>
+
+            <div id="dropdown" class="dropdown">
+                <p id="profileName"></p>
+                <p onclick="logout()">Logout</p>
+            </div>
+    </div>
+</div>
+
+<div class="dashboard">
+    <!-- Stats -->
+    <div class="cards">
+        <div class="card-box total">
+            <h4 id="total">0</h4>
+            <p>Total</p>
+        </div>
+
+        <div class="card-box accepted">
+            <h4 id="accepted">0</h4>
+            <p>Accepted</p>
+        </div>
+
+        <div class="card-box pending">
+            <h4 id="pending">0</h4>
+            <p>Pending</p>
+        </div>
+
+        <div class="card-box rejected">
+            <h4 id="rejected">0</h4>
+            <p>Rejected</p>
+        </div>
+    </div>
+
+    <a href="cli-card.html">
+        <button class="btn btn-primary btn-new">+ New Booking</button>
+    </a>
+
+    <div class="table-box">
+        <table class="table table-bordered text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>Influencer</th>
+                    <th>Budget</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="bookingBody"></tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+const clientName = localStorage.getItem("clientName") || "User";
+
+const firstLetter = clientName.charAt(0).toUpperCase();
+
+document.getElementById("profileCircle").innerText = firstLetter;
+document.getElementById("profileName").innerText = clientName;
+document.getElementById("welcomeText").innerText = "Welcome " + clientName + " 👋";
+
+fetch("http://localhost:8080/bookings")
+.then(res => res.json())
+.then(data => {
+
+    const body = document.getElementById("bookingBody");
+
+    let total = 0;
+    let accepted = 0;
+    let pending = 0;
+    let rejected = 0;
+
+    data.forEach(b => {
+
+        if(b.clientName === clientName){
+
+            total++;
+
+            if(b.status === "ACCEPTED") accepted++;
+            else if(b.status === "PENDING") pending++;
+            else if(b.status === "REJECTED") rejected++;
+
+            const row = `
+            <tr>
+                <td>${b.influencerName}</td>
+                <td>${b.budget}</td>
+                <td>${b.status}</td>
+            </tr>
+            `;
+
+            body.innerHTML += row;
+        }
+    });
+
+    // Set counts
+    document.getElementById("total").innerText = total;
+    document.getElementById("accepted").innerText = accepted;
+    document.getElementById("pending").innerText = pending;
+    document.getElementById("rejected").innerText = rejected;
+
+});
+function toggleMenu(){
+    const menu = document.getElementById("dropdown");
+
+    if(menu.style.display === "block"){
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "block";
+    }
+}
+
+function logout(){
+    localStorage.clear();
+    window.location.href = "index.html";
+}
+
+</script>
+
+</body>
+</html>

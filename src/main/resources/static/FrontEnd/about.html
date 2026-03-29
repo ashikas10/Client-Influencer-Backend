@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client-Influencer Collaboration Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.png">
+</head>
+<body class="about">
+    <div class="navbar">
+    <nav>
+        <div class="title">
+            <h3>Client-Influencer Collaboration Platform</h3>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="login.html">Login</a>
+            <a href="signup.html">Sign up</a>
+        </div>
+
+        <div class="burger" onclick="toggleMenu()">
+            ☰
+        </div>
+    </nav>
+    </div>
+    <div class="about-img">
+    <div><h1 class="abo">Client-Influencer Collaboration Platform</h1></div>
+    </div>
+    <h1 class="abo-h1">Who We Are</h1>
+    <p class="abo-p">We are a digital platform designed to connect clients with the right influencers for effective brand collaboration. Our system simplifies the process of discovering, selecting, and managing influencer partnerships in a structured and efficient way.Our goal is to bridge the gap between clients and influencers by providing a user-friendly and transparent system that enhances productivity, saves time, and improves collaboration outcomes.</p>
+    <section>
+    <h2 style="text-align: center;color: blue; font-size: 30px;">Our Platform in Numbers</h2>
+    <div class="about-container">
+        <div class="about-card">
+            <h3 class="abo-h3" id="totalInfluencer">0</h3>
+            <p>Influencers</p>
+        </div>
+        <div class="about-card">
+            <h3 class="abo-h3" id="totalClient">0</h3>
+            <p>Brands</p>
+        </div>
+        <div class="about-card">
+            <h3 class="abo-h3" id="totalBooking">0</h3>
+            <p>Campaigns Managed</p>
+        </div>
+        <div class="about-card">
+            <h3 class="abo-h3" id="acceptedBooking">0</h3>
+            <p>Accepted Bookings</p>
+        </div>
+    </div>
+    </section>
+    <div class="about-list">
+        <div class="abo-key">
+            <h1>Key Features</h1>
+            <div class="abo-ul">
+            <ul>
+                <li>Secure client and influencer registration system</li>
+                <li>Simplified booking request creation with budget details</li>
+                <li>Interactive dashboard for influencers to manage requests</li>
+                <li>Instant status updates (Pending, Accepted, Rejected)</li>
+                <li>Centralized admin panel for efficient data management</li>
+            </ul>
+        </div>
+        </div>
+        <div class="abo-plat">
+            <h1>Why Choose Our Platform</h1>
+            <div class="abo-ul">
+            <ul>
+                <li>Simplifies client-influencer collaboration</li>
+                <li>Saves time with structured booking process</li>
+                <li>Reduces manual work and confusion</li>
+                <li>Provides clear booking status tracking</li>
+                <li>Easy to use and manage</li>
+            </ul>
+            </div>
+        </div>
+    </div>
+    <section class="footer-section">
+        <div class="footer-ctn">
+        <h1 id="h1">Ready to find the best influencer for your brand?</h1>
+        <h1 id="h1">Start your campaign today.</h1>
+        <button class="footer-btn">Get Started</button>
+        </div>
+        <div class="footer-container">
+            <div class="footer-detail">
+                <h1 id="h1">Client-Influencer Collaboration Platform</h1>
+                <p id="p">A simple and efficient platform to connect clients and influencers for seamless booking and collaboration management.</p>
+            </div>
+            <div class="footer-detail">
+                <h1 id="h1">Quick Links</h1>
+                <div class="footer-link">
+                <a href="index.html" style="color: white;">Home</a>
+                <a href="about.html" style="color: white;">About</a>
+                <a href="login.html" style="color: white;" >Login</a>
+                <a href="signup.html" style="color: white;">Sign up</a>
+                </div>
+            </div> 
+            <div class="footer-detail">
+                <h1 id="h1">Contact</h1>
+                <p id="p">Email: ashi@gmail.com</p>
+                <p id="p">Phone: +91 7842678296</p>
+                <p id="p">Location: Chennai, India</p>
+            </div>
+
+        </div>
+        <p class="footer" style="color: white;">@ 2026 Client-Influencer Collaboration Platform</p>
+    </section>
+</body>
+<script>
+    function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+    }
+    function loadData(){
+
+        fetch("http://localhost:8080/api/influencer/all")
+        .then(res => res.json())
+        .then(data =>{
+            document.getElementById("totalInfluencer").innerText = data.length;
+        });
+        
+        fetch("http://localhost:8080/api/client/all")
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("totalClient").innerText = data.length;
+        });
+
+        fetch("http://localhost:8080/bookings")
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("totalBooking").innerText = data.length;
+        });
+
+        fetch("http://localhost:8080/bookings")
+        .then(res => res.json())
+        .then(data => {
+            let accepted = 0;
+            data.forEach(b => {
+                if(b.status === "ACCEPTED"){
+                    accepted++;
+                }
+            });
+            document.getElementById("acceptedBooking").innerText = accepted;
+        });
+    }
+    loadData();
+</script>
+</html>

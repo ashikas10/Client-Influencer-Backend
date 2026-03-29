@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client-Influencer Collaboration Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.png">
+</head>
+<body class="influencer">
+    <div class="navbar" style="margin: 0px; padding: 0px;">
+    <nav>
+        <div class="title">
+            <h3>Client-Influencer Collaboration Platform</h3>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="login.html">Login</a>
+            <a href="signup.html">Sign up</a>
+        </div>
+
+        <div class="burger" onclick="toggleMenu()">
+            ☰
+        </div>
+
+    </nav>
+    </div>
+    <h1 id="ab">Client-Influencer Collaboration Platform</h1>
+    <form id="influencer-form">
+    <h2 id="cl">Join as Influencer</h2>
+    <div class="password-box">
+    <label>Name:</label>
+    <input type="text" id="name" name="name" style="margin-left: 100px;"><br>
+    <label>Email Id:</label>
+    <input type="email" id="email"  name="email" required style="margin-left: 82px;"><br>
+    <label>Password:</label>
+    <input type="password" id="password" name="password" style="margin-left: 75px;" required><br>
+    <label>Mobile No:</label>
+    <input type="tel" id="mobile" name="mobile" required maxlength="10" style="margin-left: 70px;"><br>
+    <label>Gender:</label>
+    <select id="gender" name="gender" style="margin-left: 90px;">
+        <option>Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+    </select><br>
+    <label >Platform:</label>
+    <input type="checkbox" name="platform" value="instagram" style="margin-left: 80px;"> Instagram
+    <input type="checkbox" name="platform" value="youtube"> YouTube
+    <input type="checkbox" name="platform" value="facebook"> Facebook<br>
+    <label>Instagram UserName:</label>
+    <input type="text" id="instauser" name="instauser" required ><br>
+    <label>Followers Count:</label>
+    <input type="text" id="followers" name="followers" required style="margin-left: 32px;"><br>
+    <label>Budget:</label>
+    <input type="text" id="budget" name="budget" required style="margin-left: 92px;"><br>
+    <label >Product Category: </label>
+    <input type="checkbox" style="margin-left: 30px;" id="product" name="product" value="fashion"> Fashion 
+    <input type="checkbox" name="product" value="beauty"> Beauty
+    <input type="checkbox" name="product" value="food"> Food<br>
+    <input type="checkbox" name="product" value="travel"> Travel
+    <input type="checkbox" name="product" value="fitness"> Fitness
+    <input type="checkbox" name="product" value="technology"> Technology
+    <input type="checkbox" name="product" value="education"> Education<br>
+    <label >Others</label>
+    <input type="text" id="others" name="others" style="margin-left: 100px;"><br>
+    <button type="submit" class="btn-con">Register</button>
+    </div>
+    </form>
+    <section class="footer-section">
+        <div class="footer-ctn">
+        <h1 id="h1">Ready to find the best influencer for your brand?</h1>
+        <h1 id="h1">Start your campaign today.</h1>
+        <button class="footer-btn">Get Started</button>
+        </div>
+        <div class="footer-container">
+            <div class="footer-detail">
+                <h1 id="h1">Client-Influencer Collaboration Platform</h1>
+                <p id="p">A simple and efficient platform to connect clients and influencers for seamless booking and collaboration management.</p>
+            </div>
+            <div class="footer-detail">
+                <h1 id="h1">Quick Links</h1>
+                <div class="footer-link">
+                <a href="index.html" style="color: white;">Home</a>
+                <a href="about.html" style="color: white;">About</a>
+                <a href="login.html" style="color: white;">Login</a>
+                <a href="signup.html" style="color: white;">Sign up</a>
+                </div>
+            </div> 
+            <div class="footer-detail">
+                <h1 id="h1">Contact</h1>
+                <p id="p">Email: ashi@gmail.com</p>
+                <p id="p">Phone: +91 7842678296</p>
+                <p id="p">Location: Chennai, India</p>
+            </div>
+
+        </div>
+        <p class="footer" style="color: white;">@ 2026 Client-Influencer Collaboration Platform</p>
+    </section>
+</body>
+
+<script>
+    function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("active");
+}
+document.getElementById("influencer-form").addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const mobile=document.getElementById("mobile").value;
+
+    if(name.trim() === ""){
+        alert("Enter name");
+        return;
+    }
+
+    const formData = new FormData(this);
+
+    try {
+        const response = await fetch("http://localhost:8080/api/auth/influencer", {
+            method: "POST",
+            body: formData
+        });
+
+        const result = await response.text();
+
+        if (result === "Registered Successfully") {
+
+            localStorage.setItem("influencerName", name);
+            localStorage.setItem("influencerName", name);  
+
+            window.location.href = "influencer-dashboard.html";
+        }
+
+    } catch (error) {
+        console.log(error);
+    }
+});
+</script>
+
+
+</html>

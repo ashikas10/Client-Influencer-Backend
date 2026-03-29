@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client-Influencer Collaboration Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.png">
+</head>
+<body class="client">
+    <div class="navbar" style="margin: 0px; padding: 0px;">
+    <nav>
+        <div class="title">
+            <h3>Client-Influencer Collaboration Platform</h3>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="login.html">Login</a>
+            <a href="signup.html">Sign up</a>
+        </div>
+
+        <div class="burger" onclick="toggleMenu()">
+            ☰
+        </div>
+
+    </nav>
+    </div>
+    <h1 id="ab">Client-Influencer Collaboration Platform</h1>
+    <form id="client-form">
+        <h2 id="cl">Join as Client</h2>
+        <div class="password-box">
+        <label >Name:</label>
+        <input type="text" id="name" name="name" required style="margin-left: 45px;"><br>
+        <label>Email Id:</label>
+        <input type="email" id="email" name="email" required style="margin-left: 30px;"><br>
+        <label>Password:</label>
+        <input type="password" id="password" name="password" style="margin-right: 30px;" required>
+        <label>Mobile No:</label>
+        <input type="tel" id="mobile" name="mobile" maxlength="10" required style="margin-left: 18px;"><br>
+        <label>Brand Name:</label>
+        <input type="text" id="brand" name="brand" required style="margin-left: 8px;"><br>
+        <div class="form-row" style="margin-left: -10px;">
+            <label>Product Category:</label>
+            <select id="category" name="category" required>
+                <option selected>Product Category</option>
+                <option value="fashion" >Fashion</option>
+                <option value="beauty" >Beauty</option>
+                <option value="food" >Food</option>
+                <option value="travel" >Travel</option>
+                <option value="fitness" >Fitness</option>
+                <option value="technology" >Technology</option>
+                <option value="education" >Education</option>
+            </select>
+        </div>
+        </div>
+        <button type="submit" class="btn-lab">Register</button>
+    </form>
+    <section class="footer-section">
+        <div class="footer-ctn">
+        <h1 id="h1">Ready to find the best influencer for your brand?</h1>
+        <h1 id="h1">Start your campaign today.</h1>
+        <button class="footer-btn">Get Started</button>
+        </div>
+        <div class="footer-container">
+            <div class="footer-detail">
+                <h1 id="h1">Client-Influencer Collaboration Platform</h1>
+                <p id="p">A simple and efficient platform to connect clients and influencers for seamless booking and collaboration management.</p>
+            </div>
+            <div class="footer-detail">
+                <h1 id="h1">Quick Links</h1>
+                <div class="footer-link">
+                <a href="index.html" style="color: white;">Home</a>
+                <a href="about.html" style="color: white;">About</a>
+                <a href="login.html" style="color: white;">Login</a>
+                <a href="signup.html" style="color: white;">Sign up</a>
+                </div>
+            </div> 
+            <div class="footer-detail">
+                <h1 id="h1">Contact</h1>
+                <p id="p">Email: ashi@gmail.com</p>
+                <p id="p">Phone: +91 7842678296</p>
+                <p id="p">Location: Chennai, India</p>
+            </div>
+
+        </div>
+        <p class="footer" style="color: white;">@ 2026 Client-Influencer Collaboration Platform</p>
+    </section>
+</body>
+<script>
+    function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("active");
+    }
+
+document.getElementById("client-form").addEventListener("submit", async function(e) {
+
+    e.preventDefault(); 
+
+    const name = document.getElementById("name").value;
+    const mobile = document.getElementById("mobile").value;
+
+    // 🔥 MOVE HERE (IMPORTANT)
+    localStorage.setItem("clientName", name);
+    localStorage.setItem("clientMobile", mobile);
+
+    const formData = new FormData(this);     
+
+    try {
+
+        const response = await fetch("http://localhost:8080/api/auth/client", {
+            method: "POST",
+            body: formData
+        });
+
+        const result = await response.text();
+
+        if (result === "Please Signed up") {
+            alert("Please Signed up");
+            window.location.href = "signup.html";
+        }
+        else if (result === "Registered Successfully") {
+            alert("Registered Successfully ");
+            window.location.href = "client-profile.html";
+        }
+
+    } catch (error) {
+        alert("Something went wrong!");
+        console.log(error);
+    }
+
+});
+</script>
+</html>

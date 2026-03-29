@@ -1,0 +1,279 @@
+/*Admin*/
+.admin{
+    background-color: rgb(252, 240, 229);
+}
+#admin-form{
+    background-color: white;
+    box-shadow: 0px 0px 10px ;
+    margin-top: 130px;
+    width: 300px;
+    height: 200px;
+    padding: 20px;
+    margin-left: 500px;
+    border-radius: 6px;
+}
+.col-mb3{
+    line-height: 75px;
+}
+.admin-btn{
+    margin-top: 50px;
+    margin-left: 100px;
+    padding: 8px;
+    width: 100px;
+    background-color: #255db1;
+    border-radius: 7px;
+    color: white;
+}
+#ab{
+   color: Navy;
+    margin-top: 50px;
+    font-size: 40px; 
+    text-align: center;
+}
+/*Dashboard*/
+
+.dashboard{
+    background-color: rgb(194, 226, 248);
+}
+.content{
+    display: flex;
+    gap: 80px;
+}
+.sidebar{
+    width:250px;
+    background:#243b5e;
+    padding:20px;
+}
+.sidebar h2{
+    color:white;
+    text-align:center;
+    margin-bottom:40px;
+}
+.sidebar a{
+    background-color: #243b5e;
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:10px;
+}
+.sidebar a:hover{
+    color: white;
+    background:#1a2d4a;
+}
+.dropdown-menu{
+    background: #243b5e;
+    box-shadow: none;
+    position: static;
+    width: 100% ;
+}
+.dropdown-item:hover{
+    background-color: #1e3555;
+    
+}
+
+.dropdown-toggle::after{
+    position:absolute;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
+}
+.dash-card{
+    width:200px;
+    height:150px;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    text-align:center;
+    padding:20px;
+}
+.dash-card:hover{
+    transform: translateY(-5px);
+}
+.dash-body{
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+    margin-top: 60px;
+}
+/*manage-Client*/
+
+#addClientTable{
+    border-collapse: collapse;
+    margin-top: 50px;
+}
+
+#addClientTable th,
+#addClientTable td{
+    border:1px solid black;
+    padding:10px;
+    
+}
+#addClientTable th{
+    background:#243b5e;
+    color:white;
+    text-align: center;
+}
+
+.addClient-heading{
+    margin-top: 50px;
+    text-align: center;
+}
+.edit-client-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+/*Add-Client*/
+.form-control{
+    border: 1px solid black !important;
+}
+.add-sidebar{
+    width:250px;
+    background:#243b5e;
+    height: 100vh;
+    padding:20px;
+}
+.add-sidebar h2{
+    color:white;
+    text-align:center;
+    margin-bottom:40px;
+}
+.add-sidebar a{
+    background-color: #243b5e;
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:10px;
+}
+.add-sidebar a:hover{
+    color: white;
+    background:#1a2d4a;
+}
+
+/*Add-Influencer*/
+
+/*manage-Influencer*/
+
+#addInfluencerTable{
+    border-collapse: collapse;
+    margin-top: 50px;
+}
+
+#addInfluencerTable th,
+#addInfluencerTable td{
+    border:1px solid black;
+    padding:10px;
+    
+}
+#addInfluencerTable th{
+    background:#243b5e;
+    color:white;
+    text-align: center;
+}
+
+.addInfluencer-heading{
+    margin-top: 50px;
+    text-align: center;
+}
+
+/*CLIENT*/
+
+#clientTable{
+    border-collapse: collapse;
+    margin-top: 50px;
+}
+
+#clientTable th,
+#clientTable td{
+    border:1px solid black;
+    padding:10px;
+    
+}
+#clientTable th{
+    background:#243b5e;
+    color:white;
+    text-align: center;
+}
+
+.client-heading{
+    margin-top: 50px;
+    text-align: center;
+}
+.cli-sidebar{
+    width:250px;
+    background:#243b5e;
+    padding:20px;
+}
+.cli-sidebar h2{
+    color:white;
+    text-align:center;
+    margin-bottom:40px;
+}
+.cli-sidebar a{
+    background-color: #243b5e;
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:10px;
+}
+.cli-sidebar a:hover{
+    color: white;
+    background:#1a2d4a;
+}
+/*Influencer*/
+
+#influencerTable{
+    border-collapse: collapse;
+    margin-top: 50px;
+}
+
+#influencerTable th,
+#influencerTable td{
+    border:1px solid black;
+    padding:10px;
+    
+}
+#influencerTable th{
+    background:#243b5e;
+    color:white;
+    text-align: center;
+}
+
+.influencer-heading{
+    margin-top: 50px;
+    text-align: center;
+}
+.inf-heading{
+    margin-top: 50px;
+    text-align: center;
+}
+.inf-sidebar{
+    width:250px;
+    background:#243b5e;
+    padding:20px;
+}
+.inf-sidebar h2{
+    color:white;
+    text-align:center;
+    margin-bottom:40px;
+}
+.inf-sidebar a{
+    background-color: #243b5e;
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:10px;
+}
+.inf-sidebar a:hover{
+    color: white;
+    background:#1a2d4a;
+}
+
+/*BOKKING*/
