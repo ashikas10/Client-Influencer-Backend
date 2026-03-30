@@ -9,6 +9,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String home() {
-        return "App running 🚀";
+        return "index.html";
     }
 }
