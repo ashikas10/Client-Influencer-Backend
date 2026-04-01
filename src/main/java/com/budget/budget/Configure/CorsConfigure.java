@@ -17,7 +17,7 @@ public class CorsConfigure {
 
                 registry.addMapping("/**")
                         .allowedOrigins("*")
-                        .allowedMethods("GET", "POST", "PUT", "DELETE")
+                        .allowedOrigins("https://dreamy-gumdrop-ea0934.netlify.app")
                         .allowedHeaders("*");
             }
         };
