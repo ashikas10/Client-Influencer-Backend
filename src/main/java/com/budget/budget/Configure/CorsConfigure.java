@@ -11,10 +11,8 @@ public class CorsConfigure {
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
-
             @Override
             public void addCorsMappings(@NonNull CorsRegistry registry) {
-
                 registry.addMapping("/**")
                         .allowedOrigins("*")
                         .allowedOrigins("https://dreamy-gumdrop-ea0934.netlify.app")
