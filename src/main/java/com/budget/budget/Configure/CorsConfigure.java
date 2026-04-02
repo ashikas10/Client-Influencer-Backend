@@ -14,9 +14,9 @@ public class CorsConfigure {
             @Override
             public void addCorsMappings(@NonNull CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("*")
-                        .allowedOrigins("https://dreamy-gumdrop-ea0934.netlify.app")
-                        .allowedHeaders("*");
+                .allowedOrigins("https://dreamy-gumdrop-ea0934.netlify.app")
+                .allowedMethods("*")
+                .allowedHeaders("*");
             }
         };
     }
