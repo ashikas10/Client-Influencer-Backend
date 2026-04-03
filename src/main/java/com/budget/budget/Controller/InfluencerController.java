@@ -17,7 +17,7 @@ import com.budget.budget.Repository.InfluencerRepository;
 
 @RestController
 @RequestMapping("/api/influencer")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class InfluencerController {
     
     @Autowired

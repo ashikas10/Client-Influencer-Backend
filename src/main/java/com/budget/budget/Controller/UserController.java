@@ -12,7 +12,7 @@ import com.budget.budget.Repository.UserRepository;
 
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class UserController {
 
     @Autowired

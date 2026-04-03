@@ -19,7 +19,7 @@ import com.budget.budget.Repository.UserRepository;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin("*") // allows requests from any origin (Netlify frontend)
+@CrossOrigin(origins = "*") // allows requests from any origin (Netlify frontend)
 public class AuthController {
 
     @Autowired

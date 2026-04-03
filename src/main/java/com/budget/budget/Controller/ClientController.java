@@ -17,7 +17,7 @@ import com.budget.budget.Repository.ClientRepository;
 
 @RestController
 @RequestMapping("/api/client")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class ClientController {
     
     @Autowired
