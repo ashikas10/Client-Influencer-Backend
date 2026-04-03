@@ -20,7 +20,7 @@ import com.budget.budget.Repository.AddInfluencerRepository;
 
 @RestController
 @RequestMapping("/api/addinfluencer")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class AddInfluencerController {
     
     @Autowired
