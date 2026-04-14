@@ -25,9 +25,14 @@ public class InfluencerController {
     private InfluencerRepository influenerRepository;
 
     @PostMapping("/save")
-    public String saveUser(@RequestBody Influencer u) { 
+    public ResponseEntity<?> saveUser(@RequestBody Influencer u) { 
         influenerRepository.save(u);
-        return "Saved Successfully";
+
+        return ResponseEntity.ok().body(
+            java.util.Map.of(
+                "message", "Saved Successfully"
+            )
+        );
     }
     @GetMapping("/all")
     public List<Influencer> getAllInfluencers(){
