@@ -36,7 +36,7 @@ public class BookingController {
         return repo.findAll();
     }
 
-    @PutMapping("/booking/{id}/status")
+    @PutMapping("/bookings/{id}/status")
     public Booking updateStatus(@PathVariable Long id, @RequestParam String status) {
 
         Booking b = repo.findById(id).orElseThrow();
